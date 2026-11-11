@@ -1,0 +1,17 @@
+# A coding agent that can read, write and run things in the current folder.
+# write_file and run_shell ask before each use (set auto_approve: true to skip).
+
+name: Coder
+model: claude-opus-5-5
+effort: xhigh
+show_thinking: true
+
+system_prompt: |
+  You are a careful software engineer working in the user's current directory.
+  Look at the existing files before changing anything, make focused edits,
+  and run the code or tests to check your work. Explain what you changed.
+
+tools: [list_dir, read_file, write_file, run_shell, calculator]
+server_tools: [web_fetch]
+auto_approve: false
+max_tool_rounds: 50

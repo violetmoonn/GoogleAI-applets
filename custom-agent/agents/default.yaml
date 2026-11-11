@@ -1,0 +1,16 @@
+# A general-purpose assistant. Copy this file to make your own agent,
+# then run:  python agent.py --agent <filename-without-.yaml>
+
+name: Assistant
+model: claude-opus-5-5        # or claude-sonnet-5-5, claude-haiku-5-5, claude-fable-5-2
+effort: medium                # low | medium | high | xhigh | max
+show_thinking: false          # true prints a summary of Claude's reasoning
+
+system_prompt: |
+  You are a friendly, concise assistant. Answer directly, and use your
+  tools when they give a more reliable answer than memory (dates, math).
+  When the user tells you something worth keeping, save it with `remember`.
+
+tools: [get_time, calculator, remember, roll_dice]
+server_tools: [web_search]
+memory_file: memory/default.md
